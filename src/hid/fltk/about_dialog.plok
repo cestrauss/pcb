@@ -1,0 +1,105 @@
+/*!
+ * \file about_dialog.cpp
+ *
+ * \author Bert Timmerman <bert.timmerman@xs4all.nl>
+ *
+ * \copyright (C) 2021 PCB Contributors.
+ *
+ * <hr>
+ *
+ * <h1><b>Copyright.</b></h1>\n
+ *
+ * PCB, interactive printed circuit board design
+ *
+ * Copyright (C) 1994,1995,1996, 2004 Thomas Nau
+ *
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation; either version 2 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program; if not, write to the Free Software
+ * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
+ *
+ * Contact addresses for paper mail and Email:
+ * Thomas Nau, Schlehenweg 15, 88471 Baustetten, Germany
+ * Thomas.Nau@rz.uni-ulm.de
+ */
+
+
+/* Standard headers */
+#include <string>
+
+
+/* Fltk headers */
+#include <FL/Fl.H>
+#include <FL/Fl_Button.H>
+#include <FL/Fl_Box.H>
+#include <FL/fl_message.H>
+#include <FL/Fl_Window.H>
+
+
+#include "about_dialog.h"
+#include "default_button.h"
+
+
+About_Dialog::About_Dialog () : public Fl_Window
+{
+  public:
+    About_Dialog::About_Dialog () : Fl_Window (0, 0, 640, 480, "About ...")
+    {
+      end ();
+      button_show_message.callback ([] (Fl_Widget *sender, void *data)
+                                    {
+                                      about (/* Dialog name. */
+                                             "FLTK HID v0.0.1 for:\n",
+                                             /* Dialog title. */
+                                             "About PCB",
+                                             /* Description. */
+                                             "This is PCB, an interactive printed circuit board editor.\n" \
+                                             "It is licensed under the terms of the GNU General Public License version 2.\n" \
+                                             "See the LICENSE file for more information.\n" \
+                                             "The FLTK HID requires FLTK version 1.3.4.",
+                                             /* PCB version. */
+                                             "pcb-4.5.0",
+                                             /* Copyright notice. */
+                                             "Copyright © 2022 pcb contributors.\n" \
+                                             "All rights reserved.\n");
+                                    },
+                                    this);
+    }
+
+    About_Dialog::~About_Dialog ()
+    {
+    }
+
+    void
+    show (void)
+    {
+    }
+
+
+  private:
+    static void
+    about (const std::string &name,
+           const std::string &title,
+           const std::string &description,
+           const std::string &version,
+           const std::string &copyright)
+    {
+      fl_message_icon ()->label ("i");
+      fl_message_title (title.c_str ());
+      fl_choice ("%s",
+                 nullptr,
+                 fl_ok,
+                 nullptr,
+                 (name + "\n" + version + "\n\n" + copyright + "\n" + description + "\n").c_str ());
+    }
+
+};
