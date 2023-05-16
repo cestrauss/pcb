@@ -1,0 +1,11 @@
+Makefile
+Makefile.in
+*.cache
+*.tar.gz
+*.log
+bin
+doxygen
+devel
+res/apple
+tmp
+*~
