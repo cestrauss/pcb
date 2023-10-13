@@ -92,10 +92,10 @@ free_glist_and_data (GList **list_head)
 gboolean
 ghid_is_modifier_key_sym (gint ksym)
 {
-  if (ksym == GDK_Shift_R
-      || ksym == GDK_Shift_L
-      || ksym == GDK_Control_R
-      || ksym == GDK_Control_L)
+  if (ksym == GDK_KEY_Shift_R
+      || ksym == GDK_KEY_Shift_L
+      || ksym == GDK_KEY_Control_R
+      || ksym == GDK_KEY_Control_L)
     return TRUE;
 
   return FALSE;

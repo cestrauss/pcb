@@ -237,32 +237,32 @@ ghid_port_key_press_cb (GtkWidget *drawing_area, GdkEventKey *kev, gpointer data
   handled = TRUE; /* Start off assuming we handle it. */
   switch (ksym)
   {
-    case GDK_Alt_L:
-    case GDK_Alt_R:
-    case GDK_Control_L:
-    case GDK_Control_R:
-    case GDK_Shift_L:
-    case GDK_Shift_R:
-    case GDK_Shift_Lock:
-    case GDK_ISO_Level3_Shift:
+    case GDK_KEY_Alt_L:
+    case GDK_KEY_Alt_R:
+    case GDK_KEY_Control_L:
+    case GDK_KEY_Control_R:
+    case GDK_KEY_Shift_L:
+    case GDK_KEY_Shift_R:
+    case GDK_KEY_Shift_Lock:
+    case GDK_KEY_ISO_Level3_Shift:
       break;
 
-    case GDK_Up:
+    case GDK_KEY_Up:
       ghid_hotkey_cb (GHID_KEY_UP);
       break;
       
-    case GDK_Down:
+    case GDK_KEY_Down:
       ghid_hotkey_cb (GHID_KEY_DOWN);
       break;
-    case GDK_Left:
+    case GDK_KEY_Left:
       ghid_hotkey_cb (GHID_KEY_LEFT);
       break;
-    case GDK_Right:
+    case GDK_KEY_Right:
       ghid_hotkey_cb (GHID_KEY_RIGHT);
       break;
 
-    case GDK_ISO_Left_Tab: 
-    case GDK_3270_BackTab: 
+    case GDK_KEY_ISO_Left_Tab: 
+    case GDK_KEY_3270_BackTab: 
       switch (mk) 
       {
         case NONE_PRESSED:
@@ -296,7 +296,7 @@ ghid_port_key_press_cb (GtkWidget *drawing_area, GdkEventKey *kev, gpointer data
 
       break;
 
-    case GDK_Tab: 
+    case GDK_KEY_Tab: 
       switch (mk) 
       {
         case NONE_PRESSED:
