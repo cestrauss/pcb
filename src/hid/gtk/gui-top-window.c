@@ -72,7 +72,7 @@
 
 #include <unistd.h>
 
-#include "ghid-layer-selector.h"
+#include "gtk3-layer-selector.h"
 #include "ghid-route-style-selector.h"
 #include "gtkhid.h"
 #include "gui.h"
