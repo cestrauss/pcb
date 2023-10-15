@@ -64,6 +64,7 @@ button_press_cb (GtkWidget *widget, GdkEventButton *ev, gpointer userdata)
 {
   GhidTrackball *ball = GHID_TRACKBALL (userdata);
   float axis[3];
+  GtkAllocation allocation;
 
   /* Only respond to left mouse button for now */
   if (ev->button != 1)
@@ -72,8 +73,9 @@ button_press_cb (GtkWidget *widget, GdkEventButton *ev, gpointer userdata)
   switch (ev->type) {
 
     case GDK_BUTTON_PRESS:
-      ball->x1 = 2. * ev->x / widget->allocation.width - 1.;
-      ball->y1 = 2. * ev->y / widget->allocation.height - 1.;
+      gtk_widget_get_allocation(widget, &allocation);
+      ball->x1 = 2. * ev->x / allocation.width - 1.;
+      ball->y1 = 2. * ev->y / allocation.height - 1.;
       ball->dragging = TRUE;
       break;
 
