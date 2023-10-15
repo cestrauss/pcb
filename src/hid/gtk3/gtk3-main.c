@@ -2065,7 +2065,7 @@ Benchmark (int argc, char **argv, Coord x, Coord y)
   time_t start, end;
   GdkDisplay *display;
 
-  display = gdk_drawable_get_display (gport->drawable);
+  display = gdk_window_get_display (gport->drawable);
 
   gdk_display_sync (display);
   time (&start);
